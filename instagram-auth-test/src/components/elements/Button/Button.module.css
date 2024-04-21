@@ -1,0 +1,165 @@
+.buttonBase {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    align-items: center;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--noto), sans-serif;
+    font-size: 16px;
+    height: 48px;
+    position: relative;
+    text-align: left;
+    transition: 0.3s;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 24px 0 32px;
+    z-index: 2;
+}
+
+.buttonBase::after {
+    z-index: -1;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    content: "";
+    cursor: pointer;
+    opacity: 0;
+    background-color: #FFBD59;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+
+    height: 360px;
+    transform: translate(-50%, -50%) scale(0, 0);
+    transition: 0.4s;
+}
+
+.full {
+    width: 100%;
+}
+
+.exSmall {
+    width: 168px;
+}
+
+.small {
+    width: 240px;
+}
+
+.medium {
+    width: 280px;
+}
+
+.large {
+    width: 360px;
+}
+
+.exSmall::after {
+    height: 168px;
+}
+
+.small::after {
+    height: 240px;
+}
+
+.medium::after {
+    height: 280px;
+}
+
+.large::after {
+    height: 360px;
+}
+
+@media screen and (max-width: 1024px) {
+
+    /* tb = ??? */
+    .exSmallTb {
+        width: 168px;
+    }
+
+    .smallTb {
+        width: 240px;
+    }
+
+    .mediumTb {
+        width: 280px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .exSmallSp {
+        width: 168px;
+    }
+
+    .smallSp {
+        width: 240px;
+    }
+
+    .mediumSp {
+        width: 280px;
+    }
+
+    .sizeSp {
+        /* sp = ??? */
+        width: 256px;
+    }
+}
+
+.arrowColor {
+    transition: 0.4s;
+    stroke: var(--button-color);
+}
+
+.orange .arrowColor,
+.transparent .arrowColor {
+    stroke: white;
+}
+
+.white {
+    background-color: transparent;
+    border: 1px solid var(--button-color);
+    color: var(--text-color);
+}
+
+.orange {
+    background-color: #FFBD59;
+    border: none;
+    color: white;
+}
+
+.orange::after {
+    background-color: var(--reshock-orange-hover);
+}
+
+.transparent {
+    /*トップコンタクトのみ*/
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.transparent::after {
+    background-color: #ffffff40;
+}
+
+@media screen and (min-width: 1025px) {
+    .buttonBase:hover .arrowColor {
+        stroke: white;
+    }
+
+    .buttonBase:hover::after {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+
+    .white:hover {
+        color: white;
+        border: 1px solid var(--reshock-orange);
+    }
+
+    .transparent:hover::after {
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+}
